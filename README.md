@@ -1,10 +1,9 @@
-# follow-along-ecommerce
+# E-commerce
 
-## Milestone 1:
-
- Got overview of the e-commerce project Tech Stack
-MongoDb, nodeJS, express, react
-
+## Milestone-1
+- got overview of the e-commerce project Tech Stack.
+- MongoDB,nodeJS,expressJS,reactJS
+  
 ## Milestone 2:
 
 - Worked on login Page.
@@ -22,4 +21,30 @@ MongoDb, nodeJS, express, react
 ## Milestone-4
 
 - Installed JSON token
-- Created the Multer file
+- Created the Multer file
+
+## Milestone-5
+
+- Created the SignUp page
+- Used Tailwind css
+
+## Milestone-6
+
+- Encrypt the Password:
+- Use bcrypt to hash the user's password during signup.
+- Save the hashed password in the database instead of plain text.
+- Store Complete User Data:
+- Save all the user's data (e.g., name, email, etc.) in the database while ensuring that the password remains encrypted.
+
+## Milestone-7
+
+- Login Endpoint
+- This endpoint accepts user credentials (email/username and password), retrieves the corresponding user from the database, and validates the password using bcrypt.
+- If the credentials are valid, it returns a JWT token for authentication.
+
+## Milestone 8 Steps
+
+- Create the Card Component:
+- Design a reusable card component with props for product details (e.g., name, image, price).
+- Design the Homepage Layout:
+- Set up a grid layout or flexbox for displaying multiple cards neatly.
