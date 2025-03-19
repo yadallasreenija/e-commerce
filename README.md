@@ -116,3 +116,21 @@
 - Created cart frontend page and display the products
 - For each product added an option to increase and decrease quantity using + and - buttons.
 - Created an Backend endpoint for increase and decrease quantity
+
+### Milestone 20
+- Create an Backend endpoint that will sent user data
+- create frontend profile page
+- display profile photo, name and email in one section
+- In another section display address and add an button called "Add address"
+- If there are no address display "No address found"
+
+### Milestone 21
+- create address form frontend page
+- Create an state that will store input address
+- when we click on add address in profile it should navigate to this form page. 
+
+### Milestone 22
+- You need to create an endpoint that will receive the address from address form in frontend
+- Add the address to the address array inside user collection.
+
+
