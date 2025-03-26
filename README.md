@@ -133,4 +133,9 @@
 - You need to create an endpoint that will receive the address from address form in frontend
 - Add the address to the address array inside user collection.
 
+### Milestone 23
+- Create an placeorder button inside cart page and navigate to select address page when clicked.
+- Create and select address page that will display all the available address and have an option to select one address.
+- Write an backend endpoint that will send all the addresses of the user.
+
 
