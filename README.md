@@ -138,4 +138,10 @@
 - Create and select address page that will display all the available address and have an option to select one address.
 - Write an backend endpoint that will send all the addresses of the user.
 
+### Milestone 24📝
+- First we will display all the products we are ordering
+- Next we will display the address user selected to deliver
+- We will display the total value of the cart
+- We will have an place order button at the bottom.
+
 
