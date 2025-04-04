@@ -163,3 +163,8 @@
 - Display all the user orders
 - We will add my-orders page in navbar for better navigation.
 
+### Milestone 28
+- In my-orders page for every order add cancel order button
+- If the order is already canceled this button should not be displayed
+- You need to create an endpoint that will receive the order-id
+- Get the order using this id and mark the status canceled and save
