@@ -184,3 +184,11 @@
 - Download NPM package called react-paypal-js that will provide an component called PayPalScriptProvider which will display online payment methods like credit or debit card 
   etc..,
 
+### Milestone 31
+- Install an npm package called react-redux
+- create an new folder called store with two files store.js and userActions.js.
+- We will store user mail inside global state.
+- In store.js file configure an store with userReducer function that will handle global user email state.
+- Inside userActions.js file write an function called setEmail that will help in storing email state inside global state.
+- In Index.js file make sure to wrap APP component inside provider component with store as props.
+
