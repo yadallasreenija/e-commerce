@@ -192,3 +192,7 @@
 - Inside userActions.js file write an function called setEmail that will help in storing email state inside global state.
 - In Index.js file make sure to wrap APP component inside provider component with store as props.
 
+### Milestone 32
+- In Login page we will use Dispatch method to store the mail inside global state
+- In all the remaining pages acc the mail stored in global state using useSelector
+
