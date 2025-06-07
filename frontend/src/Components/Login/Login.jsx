@@ -1,82 +1,64 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useState } from 'react'
+import { FaUser } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOffOutline } from "react-icons/io5";
-import { Link, useNavigate } from 'react-router-dom';
-import { IoMdMail } from "react-icons/io";
-import server from '../../server';
-import axios from 'axios'
-import { toast } from 'react-toastify';
+function Signup() {
+  const[name,setName]= useState('')
+  const[mail,setEmail]= useState('')
+  const [password,setPassword] = useState('')
+  const [visible,setVisible]=useState(false)
+  const [avatar,setAvatar] = useState('')
+  const handleInput=(e)=>{
+    const fileName = e.target.file[0]
+    setAvatar(fileName)
+  }
+  const handleSubmit=(e)=>{
+e.preventdefaultSubmit()
+const form = new FormData()
+form.append('file',avatar)
+form.append("name",name)
+form.append("email",mail)
+form.append("password",password)
+axios.post(`${path}/create/${form}`).then()
 
-const Login = () => {
-  const navigate = useNavigate()
-const [email,setEmail]=useState('')
-const [password,setPassword] = useState('')
-const [visible,setVisible]=useState(false)
-
-const handleSubmit=async(e)=>{
-e.preventDefault()
-await axios.post(`${server}/login-user`,{email,password,},{withCredentials: true}).
-then(res=>{toast.success("login success!")
-  navigate("/")
-})
-.catch(err=>{console.log(err)
-  const errorMessage = err.response?.data?.message || 'Login failed!';
-  toast.error(errorMessage)})
 }
-
   return (
-    <>
-    <div className='flex justify-center items-center  h-screen bg-gray-100'>
-      <div className='box-border flex flex-col justify-center items-center   rounded-lg shadow-xl shadow-black-600 w-96 h-96 bg-slate-200'>
-
-      <div>
-        <h1 className='text-center text-2xl font-bold'>
-            User Login
-        </h1>
-      </div>
-      <div>
-        
-            <form onSubmit={handleSubmit} className='flex flex-col items-center justify-center w-full'>
-               
-                <div className='flex w-full h-10 m-5 bg-sky-100 rounded-lg shadow-lg items-center'>
-                    <input className='w-full focus:outline-none text-start' type='email' name='email' placeholder='   Email'autoComplete='email' required value={email} onChange={(e)=>setEmail(e.target.value)}></input>
-               <IoMdMail className='w-8 h-8 mr-5'/>
-                </div>
-                
-               
-                <div className='flex w-full h-10 bg-sky-100 rounded-lg shadow-lg items-center'>
-                    <input className='w-full focus:outline-none'type={visible?"text":"password"} name='password' placeholder='   password' autoComplete='current-password' required value={password} onChange={(e)=>setPassword(e.target.value)}></input>
-                
-                { visible ? (<IoEye className='w-10 h-10 mr-5' onClick={()=>setVisible(false)}/>)
-                :
-                (<IoEyeOffOutline className='w-10 h-10 mr-5' onClick={()=>setVisible(true)}/>)
-              }
-                
-                </div>
-                    <div className='flex mt-4'>
-                        <input type="checkbox" name='remember-me'id='remember-me' />
-                        <label className='ml-1 text-xs'>remember me</label>
-                        <a href='#' className='text-xs text-sky-500 ml-4'>forgot password ?</a>
-                    </div>
-                    
-                    
-                    <button className='w-full bg-cyan-400 mt-5 h-10 text-xl font-bold rounded-lg shadow-lg ' type='submit' >submit</button>
-                
-                <div className='flex justify-evenly mt-2'>
-                    <h6>
-                        Not have any account?
-                    </h6>
-                    <Link className='text-sky-400 ml-3' to='/signup'>Sign up</Link>
-
-                </div>
-            </form>
-                </div>
-              </div>
+    <div className='flex box-border h-screen justify-center items-center bg-gray-100'>
+      <div className='flex flex-col w-109 h-109   rounded-xl shadow-xl shawdow-black-600 bg-sky-100'>
+        <div>
+        <h1 className='text-center mt-5 text-2xl font-bold'>Create Account</h1>
         </div>
-      
-    
-    </>
+        <div className='flex justify-center items-center mt-5'>
+           <form className='flex flex-col justify-center items-center w-98 ' onSubmit={handleSubmit}>
+            <div className='flex w-full h-8 mt-5 rounded-lg shadow-lg justify-center items-center bg-slate-200'>
+              <input placeholder='user name' type='text' required value={name} onChange={(e)=>setName(e.target.value)}className='w-full focus:outline-none ml-5 text-xl'/>
+              <FaUser className='mr-5 h-8 w-8'/>
+            </div>
+            <div className='flex w-full h-8 mt-5 rounded-lg shadow-lg justify-center items-center  bg-slate-200'>
+              <input placeholder='email' type='text' required value={mail} onChange={(e)=>setEmail(e.target.value)}className='w-full focus:outline-none ml-5 text-xl'/>
+              <MdEmail className='mr-5 h-8 w-8'/>
+            </div>
+            <div  className='flex w-full h-8 mt-5 rounded-lg shadow-lg justify-center items-center  bg-slate-200'>
+              <input type={visible?"text":"password"} placeholder='password' required value={password} onChange={(e)=>setPassword(e.target.value)} className='w-full focus:outline-none ml-5 text-xl '/>
+           {visible? (<IoEye onClick={()=>setVisible(false)} className='mr-5 h-8 w-8'/>): (<IoEyeOffOutline onClick={()=>setVisible(true)} className='mr-5 h-8 w-8'/>)}
+            </div>
+               <div className='flex flex-col w-full h-15 mt-5 rounded-lg shadow-lg justify-center items-center  bg-slate-200'>
+               <label>set your profile pic</label>
+                <input type='file'  name="avatar"className='bg-amber-200' onChange={handleInput}/>
+               </div>
+             <button className='mt-5 w-full bg-blue-300 p-2 rounded-lg shadow-lg' type='submit'>submit</button>
+             <div className='mt-1 flex '>
+                <p className='text-sm'>already have account</p>
+                <p className='text-sm ml-2 text-blue-500'>login</p>
+
+             </div>
+           </form>
+        </div>
+      </div>
+    </div>
   )
 }
 
-export default Login
+export default Signup
